@@ -13,4 +13,8 @@ A stack is a type of data structure where the last element added is the first on
 * Stack can be implemented in C using 
     * Array
     * Linked list
+* Stack can be implemented in python using
+    * List
+    * collections.deque
+    * Queue.LifoQueue
 
