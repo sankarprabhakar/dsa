@@ -14,7 +14,7 @@ A stack is a type of data structure where the last element added is the first on
     * Array
     * Linked list
 * Stack can be implemented in python using
-    * List
-    * collections.deque
-    * Queue.LifoQueue
+    * List - Not thread safe
+    * collections.deque - Double ended Queue - Only append and pop is thread safe
+    * Queue.LifoQueue - Thread safe
 
