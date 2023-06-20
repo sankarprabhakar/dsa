@@ -1,16 +1,6 @@
 /*
  * Stack.c
  *
- *  Created on: Feb 26, 2023
- *      Author: sankar 
- */
-#include <stdio.h>
-#include "stack.h"
-
-
-/*
- * Stack.c
- *
  *  Created on: Jun 8, 2016
  *      Author: sankarsa
  */
@@ -18,10 +8,25 @@
 #include<stdlib.h>
 #include "Stack.h"
 
-/*
-* Function name : CreateStackNode
-* Parameter     : void pointer to data
-*/
+//typedef struct stack_node{
+//	void *data;
+//	struct node *next;
+//	struct node *prev;
+//}STACK_NODE;
+//
+//typedef struct stack
+//{
+//	STACK_NODE *top;
+//
+//}STACK;
+//
+//STACK_NODE *CreateStackNode(void *data);
+//STACK *CreateStack();
+//STACK * Push(STACK *s, void *data);
+//void * Pop(STACK *s);
+//void * Peep(STACK *s);
+//void  PrintStack(STACK *s);
+
 STACK_NODE *CreateStackNode(void *data)
 {
 	STACK_NODE *new_node = malloc(sizeof(STACK_NODE));
@@ -43,41 +48,31 @@ STACK * CreateStack()
 STACK * Push(STACK *s, void *data)
 {
 	STACK_NODE *new_node = CreateStackNode(data);
-	if(NULL != s && NULL != s->top)
-    {
-        new_node->next = s->top;
-		s->top->prev   = new_node; 
-    }
+	new_node->next = s->top;
+	if(s->top)
+		s->top->prev = new_node;
 	s->top = new_node;
 	return s;
 }
-/*Pop out the top of the stack and set the top as the next node*/
+
 void * Pop(STACK *s)
 {
-    void *data = NULL;
-    if(NULL != s)
-    {
-	    STACK_NODE *top_node = s->top;
-        if(top_node)
-        {
-            data = top_node->data;
-            s->top = top_node->next;
-            if (NULL != top_node->next)
-            {
-                /*set the previous node top to NULL*/
-                ((STACK_NODE *)top_node->next)->prev = NULL;
-            }
-            free(top_node);
-        }
-        else
-        {
-             printf("Stack is empty\n");
-        }
+	void *data = NULL;
+	if(s!=NULL)
+	{
+	STACK_NODE *top_node = s->top;
+
+	if(top_node)
+	{
+		data = top_node->data;
+		s->top = top_node->next;
+		free(top_node);
+	}
 	}
 	return data;
 }
 
-/*Peep function returns pointer to the data at top of the stack*/
+
 void * Peep(STACK *s)
 {
 	void *data = NULL;
@@ -85,15 +80,12 @@ void * Peep(STACK *s)
 	if(top_node)
 	{
 		data = top_node->data;
+
 	}
-    else
-    {
-           printf("Stack is empty\n");
-    }
 	return data;
 }
 
-/*print the stack*/
+
 void  PrintStack(STACK *s)
 {
 	void *data = NULL;
@@ -108,4 +100,10 @@ void  PrintStack(STACK *s)
 }
 
 
+//
+//
+//main()
+//{
+//	printf("Hello world \n");
+//}
 

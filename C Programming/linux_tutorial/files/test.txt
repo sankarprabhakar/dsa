@@ -1,0 +1,6 @@
+the new fd = 1 
+This data is being written to some file named test.txt 
+Length of data to be written is 24
+Hello world is the firstActual written = 24
+total_remaining = 0
+Newly written data after dup2()
