@@ -26,7 +26,9 @@ void printMiddleNode(NODE *root);
 void printMiddleNode_bycounter(NODE *root, int split);
 void printList(NODE *root);
 void removeDuplicates(NODE *root);
-
+void reverseLinkedList_Iterative(NODE **root);
+NODE * reverseLinkedList_Recursive(NODE *cur, NODE **root);
+NODE * reverseLinkedList_Recursive_1(NODE *cur, NODE *next);
 NODE *root = NULL;
 int main(void) {
 	puts("!!!Hello World!!!\n"); /* prints !!!Hello World!!! */
@@ -62,9 +64,20 @@ int main(void) {
 	removeDuplicates(root);
 	printf("Without duplicates\n");
 	printList(root);
+	printf("Reverse list\n");
 	reverseLinkedList_Iterative(&root);
 	printf("Printing the linked list(after reversing)\n");
 	printList(root);
+	printf("Reverse list\n");
+	NODE * last = reverseLinkedList_Recursive(root, &root);
+	last->l = NULL; //ending the last node.
+	printf("Printing the linked list(after reversing)\n");
+	printList(root);
+	printf("Reverse list 1\n");
+	root = reverseLinkedList_Recursive_1(root, 0);
+	printf("Printing the linked list(after reversing)\n");
+	printList(root);
+	// try reversing
 
 
 }
@@ -233,18 +246,34 @@ void reverseLinkedList_Iterative(NODE **root)
 	*root = prev;
 }
 
-void reverseLinkedList_Recursive(NODE **root)
+NODE * reverseLinkedList_Recursive(NODE *cur, NODE **root)
 {
-	NODE *current,*prev,*next;
-	prev = next = NULL;
-	current = *root;
-	if (current == NULL) {printf("Empty \n"); return;}
-	while(current != NULL)
+	if (cur  -> l == NULL)
 	{
-		next = current->l;
-		current->l = prev;
-		prev = current;
-		current = next;
+		*root = cur;
 	}
-	*root = prev;
+	else
+	{
+		reverseLinkedList_Recursive(cur->l, root);
+		cur -> l -> l = cur;
+		return cur;
+	}
+}
+
+// Return the head pointer
+NODE * reverseLinkedList_Recursive_1(NODE *cur, NODE *next)
+{
+	if(cur == NULL) return NULL;
+	NODE *ret = NULL;
+	if (cur  -> l != NULL)
+	{
+		ret = reverseLinkedList_Recursive_1(cur->l, cur);
+	}
+	else
+	{
+		ret = cur;
+
+	}
+	cur -> l = next;
+	return ret;
 }
