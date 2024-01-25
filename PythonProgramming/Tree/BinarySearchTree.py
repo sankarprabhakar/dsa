@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 #import collections 
 import math
+from queue import Queue
 class BinaryNode:
     def __init__(self,val):
         self.value = val
@@ -257,7 +258,7 @@ class BST:
         while node.left != None:
             node = node.left
         return node
-    
+     
     
     ####################################################
     #  find inorder predecissor and successor - a node
@@ -272,16 +273,62 @@ class BST:
     #   2.a.Successsor is minvalue in the right sub tree
     #   2.b. Predicessor is maxvalue in the left sub tree
     def find_inorder_predecessor_successor(self,val):
-        pass
-   
-                
+        if self.root == None:
+            return (None,None)
+        ancestor = self.root
+        successor = None
+        predecissor = None
+        
+        while ancestor != None:
+            if val < ancestor.value:
+                successor = ancestor
+                ancestor = ancestor.left
+            elif val > ancestor.value:
+                predecissor = ancestor
+                ancestor = ancestor.right
+            else:
+                if ancestor.right != None:
+                    successor = self.findMin_recur(ancestor.right)
+                if ancestor.left != None:
+                    predecissor = self.findMax_recur(ancestor.left)
+                return (predecissor,successor)
+        return (predecissor,successor)
+    
+    ####################################################
+    #  level order traversal
+    ####################################################
+    # 1. enque root to Q
+    # 2. while Q is not emply - Take item from Q
+    #       2.a Print Value of node
+    #       2.b Enqueue the children of node to Q
+    
+    def level_order_traversal(self):
+        if self.root == None:
+            return
+        q = Queue()
+        q.put(self.root)
+        while q.empty() != True:
+            level_size = q.qsize()
+            
+            while level_size != 0:            
+                node = q.get()
+                print(f"{node.value}", end= " - ")
+                if node.left != None:
+                    q.put(node.left)
+                if node.right != None:
+                    q.put(node.right)
+                level_size = level_size - 1
+            print("\n---------------------------")
+            
+
+
+    def height_of_tree(self,root):
+        if root == None:
+            return -1
+        return  max(self.height_of_tree(root.left), 
+                    self.height_of_tree(root.right)) + 1
+        
                     
-            
-            
-    
-    
-    
-    
     def print(self):
         temp = self.root
         while (temp != None):
@@ -316,15 +363,10 @@ if __name__ == "__main__":
     print ( f"\nIsBST : {bst.isBST(bst.root)}")
     print ( f"IsBST-2 : {bst.isBST(bst.root)}")
     
-    bst.root = bst.delete_node(bst.root, 1)
+    #bst.root = bst.delete_node(bst.root, 1)
     print("In-order traversal")
     bst.inorder(bst.root)
-    
-    
-    
-    
-    
-        
-
-
-    
+    p,s = bst.find_inorder_predecessor_successor(55)
+    print(f"\nPredicissor {p} and Sucessor = {s}")
+    bst.level_order_traversal()
+    print(f"Height = {bst.height_of_tree(bst.root)}")
