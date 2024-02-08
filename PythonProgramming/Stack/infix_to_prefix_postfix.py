@@ -19,7 +19,7 @@ class Infix_Postfix_converter:
         #print(stack.peep())
         for item in expr:
             if self.isoperator(item) == True:
-                print(f"\noperator is {item}", end = "\n")
+                #print(f"\noperator is {item}", end = "\n")
                 ## if item is higher precidence or stack is empty place it
                 if stack.isStackEmpty() or self.isOpeningParanthesis(item):
                     stack.push(item)
@@ -46,6 +46,61 @@ class Infix_Postfix_converter:
             if self.isClosingParanthesis(poped_element) == False:
                 output = output +  poped_element + " "
         return output
+    
+    
+    def infix_to_prefix(self, input_string):
+        operator_stack = deque_stack()
+        operand_stack = deque_stack()
+        expr = input_string.split(" ")
+        print(expr)
+      
+        for char in expr:
+            print(f"input is {char}")
+            if self.isoperator(char) == False:
+                print(f"input to stack {char}")
+                operand_stack.push(char)
+            else:
+                if operator_stack.isStackEmpty():
+                    operator_stack.push(char)
+                elif self.isClosingParanthesis(char):
+                    ## We need to check till open paranthesis
+                    while self.isMatchingOpeningParanthesis(operator_stack.peep(), char) == False:
+                        #poped_element = stack.pop()
+                        op2 = operand_stack.pop()
+                        op1 = operand_stack.pop()
+                        oper = operator_stack.pop()
+                        operation_string = oper + " " + op1 + " " + op2
+                        operand_stack.push(operation_string)
+                    operator_stack.pop() ##pop the clsing brace
+                elif self.isPrecedenceHigher(operator_stack.peep(), char) == True:
+                    while operator_stack.isStackEmpty() == False:
+                        #poped_element = stack.pop()
+                        if self.isOpeningParanthesis(operator_stack.peep()) == False:
+                            op2 = operand_stack.pop()
+                            op1 = operand_stack.pop()
+                            oper = operator_stack.pop()
+                            operation_string = oper + " " + op1 + " " + op2
+                            operand_stack.push(operation_string)
+                            
+                        else:
+                            break
+                    operator_stack.push(char)
+                else:
+                    operator_stack.push(char)
+          
+        while operator_stack.isStackEmpty() != True:
+           # operand = operand_stack.pop()
+            op2 = operand_stack.pop()
+            op1 = operand_stack.pop()
+            oper = operator_stack.pop()
+            operation_string = oper + " " + op1 + " " + op2
+            operand_stack.push(operation_string)
+            
+            
+        return operand_stack.pop()
+                    
+            
+            
     
     def isMatchingOpeningParanthesis(self, peeped_op, op):
         if peeped_op in self.opening_paranthesis:
@@ -78,5 +133,8 @@ class Infix_Postfix_converter:
 
 if __name__ == "__main__":
     t = Infix_Postfix_converter()
-    result = t.infix_to_postfix("( a + b ) * ( c - d ) * e")
+    result = t.infix_to_postfix("a + b")
     print(result)
+    result = t.infix_to_prefix("( a + b * c + d )")
+    print(result)
+    
