@@ -24,31 +24,59 @@ class Mergesort:
         llen = len(l_sorted)
         #if type(r_sorted) == list:
         rlen = len(r_sorted)
+        
+        #llen = -1 if llen == 0 else llen
+        #rlen = -1 if rlen == 0 else rlen
+        
         i = 0
         j = 0
         k = 0
-        print(l_sorted)
-        print(r_sorted)
+        #print(l_sorted)
+        #print(r_sorted)
         ## merge into l_sorted & r_sorted in to array.
         #for i in range(arr_len):
-        while j < llen and k < rlen:
-            #print(j,k)
-            if l_sorted[j] < r_sorted[k]:
+        if order == 'asc': ## Ascending order
+            while j>=0 and k>=0  and j < llen and k < rlen:
+                #print(j,llen,k,rlen)
+                
+                if l_sorted[j] < r_sorted[k]:
+                    array[i] = l_sorted[j]
+                    j += 1
+                    i += 1
+                else:
+                    array[i] = r_sorted[k]
+                    k += 1
+                    i += 1
+            while j  <  llen:
                 array[i] = l_sorted[j]
-                j -= 1
+                j += 1
                 i += 1
-            else:
+            while k < rlen:
                 array[i] = r_sorted[k]
-                k -= 1
+                k += 1
                 i += 1
-        while j  >= 0:
-            array[i] = l_sorted[j]
-            j -= 1
-            i += 1
-        while k >= 0:
-            array[i] = r_sorted[k]
-            k -= 1
-            i += 1
+        else: # Logic for descending
+            while j>=0 and k>=0  and j < llen and k < rlen:
+                #print(j,llen,k,rlen)
+                
+                if l_sorted[j] > r_sorted[k]:
+                    array[i] = l_sorted[j]
+                    j += 1
+                    i += 1
+                else:
+                    array[i] = r_sorted[k]
+                    k += 1
+                    i += 1
+            while j  <  llen:
+                array[i] = l_sorted[j]
+                j += 1
+                i += 1
+            while k < rlen:
+                array[i] = r_sorted[k]
+                k += 1
+                i += 1
+                
+        #print(array)
         return array
             
 if __name__ == "__main__":
