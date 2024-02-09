@@ -9,6 +9,13 @@ class deque_stack:
         return self.stack_deque.pop()
     def peep(self):
         return self.stack_deque[-1]
+    def isStackEmpty(self):
+        try:
+            self.peep()
+            return False
+        except:
+            return True
+      
     def printStack(self):
         for item in self.stack_deque:
             print(item,end=' ')
