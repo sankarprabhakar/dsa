@@ -14,18 +14,30 @@ class InsertionSort:
         return
     def sort(self,array, order="asc"):
         no_elements = len(array)
-        for i in range(no_elements-1): ## Last element will be auto sorted
+        for i in range(1,no_elements): ## Last element will be auto sorted
             element_to_move = array[i]
             ## init at i and move to 0
-            j = i
+            j = i-1
             while j >= 0:
-                if array[j] > element_to_move:
-                    array[j+1] = array[j]
+                if order == 'asc':
+                    if array[j] < element_to_move:
+                        array[j+1] = array[j]
+                    else:
+                        break
                 else:
-                    break
-                j -= 1
-            array[j] = element_to_move
-            
+                    if array[j] < element_to_move:
+                        array[j+1] = array[j]
+                    else:
+                        break
+                j -= 1             
+            array[j+1] = element_to_move
+        return array
                 
                 
-        
+                
+if __name__ == "__main__":
+    insertion = InsertionSort()
+    print(insertion.sort([9,8,7,2,5,4,99], order = "asc"))
+    print(insertion.sort([9,8,7,55,5,4], order = "dsc"))
+    print(insertion.sort([9], order = "dsc"))
+    print(insertion.sort([9,10], order = "dsc"))  
