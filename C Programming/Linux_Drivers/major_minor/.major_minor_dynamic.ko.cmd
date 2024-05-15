@@ -1,1 +1,0 @@
-cmd_/home/sankar/Share/major_minor/major_minor_dynamic.ko := ld -r -m elf_x86_64 -z max-page-size=0x200000 -T ./scripts/module-common.lds --build-id  -o /home/sankar/Share/major_minor/major_minor_dynamic.ko /home/sankar/Share/major_minor/major_minor_dynamic.o /home/sankar/Share/major_minor/major_minor_dynamic.mod.o ;  true

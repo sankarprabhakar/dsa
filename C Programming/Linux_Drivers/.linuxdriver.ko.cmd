@@ -1,1 +1,0 @@
-cmd_/home/sankar/Share/linuxdriver.ko := ld -r -m elf_x86_64 -z max-page-size=0x200000 -T ./scripts/module-common.lds --build-id  -o /home/sankar/Share/linuxdriver.ko /home/sankar/Share/linuxdriver.o /home/sankar/Share/linuxdriver.mod.o ;  true
