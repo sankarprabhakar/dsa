@@ -9,14 +9,14 @@ Queue have two ends namely Rear and Front. Rear end : Where data gets added Fron
 
 ## Implementation options:
 * C :
-- Arrays
-- LinkedList
+  * Arrays
+  * LinkedList
 
-*Python:
-- List
-- Collections.dqueue
-- Queue.Queue
+* Python:
+  * List
+  * Collections.dqueue
+  * Queue.Queue
 
 * C++
-- Vectors
-- LinkedList 
+  * Vectors
+  * LinkedList 
