@@ -21,7 +21,7 @@ Queue have two ends namely Rear and Front. Rear end : Where data gets added Fron
   * Vectors
   * LinkedList
 
-  ## BFS and shortest path finding
+## BFS and shortest path finding
    * BFS is used to find the shortest path from root node to given node.
    * Algo:
       1 From the node, add the root to Q & initialized tte depth counter 
@@ -33,5 +33,12 @@ Queue have two ends namely Rear and Front. Rear end : Where data gets added Fron
               * increment the Depth_counter
         4 Go to step to get #2.
       5 return depth_counter is Q_Size is 0
+
+    * BFS is also level order traversal.
+    * BFS uses the Q (FIFO DS)
+    * While doing BFS in graphs there is a possiblility of visiting a node again and again and entering into a loop. We can avoid by maintaing the hash of visited list.
+    
+
+ 
   
 
