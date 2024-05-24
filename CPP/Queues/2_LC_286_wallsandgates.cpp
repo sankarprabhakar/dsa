@@ -29,3 +29,35 @@ n == rooms[i].length
 rooms[i][j] is -1, 0, or 231 - 1.
 */
 
+#include<iostream>
+#include<queue>
+
+using namespace std;
+class WallsandGate
+{
+public:
+    void findDistaceFromGate(vector<vector<int>> &rooms);
+};
+
+void WallsandGate::findDistaceFromGate(vector<vector<int>> &rooms)
+{
+    // Enqueue all gates to Queue
+    queue<pair<int,int>> myQ;
+    int rows = rooms.size();
+    int cols = rooms[0].size();
+    for(int i = 0 ; i < rows; i++)
+    {
+        for (int j = 0 ; j < cols; j++)
+        {
+            if(rooms[i][j] == 0)
+            {
+                myQ.emplace(i,j);
+            }
+        }
+    }
+    // define distance 
+    int d = 0;
+    vector<int> directions = {-1,0,1,0,-1} ;
+
+
+}
