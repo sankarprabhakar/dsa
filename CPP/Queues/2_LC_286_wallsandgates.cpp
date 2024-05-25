@@ -32,7 +32,17 @@ rooms[i][j] is -1, 0, or 231 - 1.
 #include<iostream>
 #include<queue>
 
+#define INT_MAX  2147483647 
 using namespace std;
+
+// Test
+int main(void)
+{
+    
+    
+}
+
+
 class WallsandGate
 {
 public:
@@ -57,7 +67,26 @@ void WallsandGate::findDistaceFromGate(vector<vector<int>> &rooms)
     }
     // define distance 
     int d = 0;
-    vector<int> directions = {-1,0,1,0,-1} ;
-
-
+    vector<int> dir = {-1,0,1,0,-1} ; //left, up,right, down
+    while(!myQ.empty())
+    {
+        d++; // increase the distance
+        int q_size = myQ.size();
+        for(int i = 0; i<q_size; i++)
+        {
+            //de_q
+            auto gm_cord = myQ.front();
+            myQ.pop();
+            for(i = 0; i < 4; i++) //check four direction of gate or room
+            {
+                int adj_x = gm_cord.first + dir[i];
+                int adj_y = gm_cord.second + dir[i+1];
+                //if adjacent rooms are valid && value is inf upate it proper
+                if (adj_x >= 0 && adj_x < rows && adj_y >= 0 && adj_y > cols && rooms[adj_x][adj_y] == INT_MAX)
+                {
+                    rooms[adj_x][adj_y] = d;
+                }
+            }
+        }
+    }
 }
