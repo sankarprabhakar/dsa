@@ -37,3 +37,4 @@
 | 1         | 345           | [Moving Average](https://github.com/sankarprabhakar/dsa/blob/ca4b46083762e8e67e66821362c2e02b6470a7fb/CPP/Queues/1_LC_345_Moving_Average.cpp)                 |
 | 2         | 286           |[Walls and Gates](https://github.com/sankarprabhakar/dsa/blob/ca4b46083762e8e67e66821362c2e02b6470a7fb/CPP/Queues/2_LC_286_wallsandgates.cpp)                                                                                             |
 | 3         | 200           |[Number of islands](https://github.com/sankarprabhakar/dsa/blob/ca4b46083762e8e67e66821362c2e02b6470a7fb/CPP/Queues/3_LC_200_Number_of_islands.cpp)                                                     |
+| 4         | 752           |[Open the lock](https://github.com/sankarprabhakar/dsa/blob/ec7a19d84c2d347b9c047c585e5461c9be711143/PythonProgramming/DataStructures/Queue/4_LC_752_OpentheLock.py)                                                                          |
