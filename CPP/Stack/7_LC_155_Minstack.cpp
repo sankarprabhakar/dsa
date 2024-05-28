@@ -36,33 +36,55 @@ Constraints:
 -231 <= val <= 231 - 1
 Methods pop, top and getMin operations will always be called on non-empty stacks.
 At most 3 * 104 calls will be made to push, pop, top, and getMin.
+
+getmin <-- upload the mins
+update <-- top with data - min <== 
+pop <== data + min
+
+a b c d
+a b-a c-a a-d e-d f-d
+d
+if poped - min != 
+
+next_min = a-d+d
+data = next_min - (a -d)
+
+Solution : Using 2 stacks..
+
 */
 #include<iostream>
-#include <vector>
+#include<vector>
+
 using namespace std;
 
 class MinStack
 {
 public:
-    MinStack()
-    {
+    MinStack()    {
         cout << "Constructor " << endl;
+    }
+    int getMin()
+    {
+        if(this->min_stack.empty())
+        {
+            return -1;
+        }
+        else
+        { 
+            return this->min_stack.back();
+        }
     }
     void push(int data)
     {
         if (this->stack.empty())
-        {
-            this->min = data;
-            this->stack.push_back(0);
-        }
-        else if (data > this->min)
-        {
-            this->stack.push_back(data - this->min);
+        {    
+            this->stack.push_back(data);
+            this->min_stack.push_back(data);
         }
         else
         {
-            this->stack.push_back(data - this->min);
-            this->min = data;
+            this->stack.push_back(data);
+            this->min_stack.push_back(min(data,this->min_stack.back()));
         }
         return;
     }
@@ -85,12 +107,14 @@ public:
         }
         else{
             this->stack.pop_back();
+            this->min_stack.pop_back();
             return 0;
         }
     }
 private:
     vector<int> stack;
-    int min;
+    vector<int> min_stack;
+    
 };
 
 int main(void)
@@ -100,8 +124,10 @@ int main(void)
     s.push(1);
     s.push(2);
     s.push(-3);
+    cout << "Get min" << s.getMin() << endl;
     cout << "empty peep " << s.peep() <<endl; // -3
     s.pop();
+    cout << "Get min" << s.getMin() << endl;
     cout << "empty peep " << s.peep() <<endl; // 2
 
 }
