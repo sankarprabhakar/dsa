@@ -46,14 +46,12 @@ a b-a c-a a-d e-d f-d
 d
 if poped - min != 
 
-next_min = a-d+d
-data = next_min - (a -d)
-
-Solution : Using 2 stacks..
+Solution : Using one stack .. push 2*<<input>> - <prev_min>>
 
 */
 #include<iostream>
 #include<vector>
+#include <stack>
 
 using namespace std;
 
@@ -65,55 +63,80 @@ public:
     }
     int getMin()
     {
-        if(this->min_stack.empty())
+        if(this->my_stack.empty())
         {
             return -1;
         }
         else
         { 
-            return this->min_stack.back();
+            return this->min_val;
         }
     }
     void push(int data)
     {
-        if (this->stack.empty())
+        if (this->my_stack.empty())
         {    
-            this->stack.push_back(data);
-            this->min_stack.push_back(data);
+            this->my_stack.push(data);
+            this->min_val = data;
+            //this->min_stack.push_back(data);
+        }
+        else if(data < this->min_val)
+        {
+          // prev_min_val = min_val
+          // push (2 * data - prev_min_val)
+          // min_val = data
+          int prev_min = this->min_val;
+          int stack_prev = 2 * data - prev_min;
+          this->my_stack.push(stack_prev);
+          this->min_val = data; 
         }
         else
         {
-            this->stack.push_back(data);
-            this->min_stack.push_back(min(data,this->min_stack.back()));
+            this->my_stack.push(data);
         }
-        return;
+     
     }
     int peep()
     {
-        if (this->stack.empty() == 1)
+        if (this->my_stack.empty() == 1)
         {
             return 0xFFFFFF;
         }
         else
         {
-            return this->stack.back();
+             int data = this->my_stack.top();
+             if (data < this->min_val)
+             {
+                return this->min_val;
+             }
+             else
+             {
+                return data;
+             }
+
         }
     }
     int pop()
     {
-        if (this->stack.empty())
+        if (this->my_stack.empty())
         {
             return 1;
         }
         else{
-            this->stack.pop_back();
-            this->min_stack.pop_back();
-            return 0;
+
+             int data = this->my_stack.top();
+             this->my_stack.pop();
+             if (data < this->min_val)
+             {
+                this->min_val = 2 * this->min_val - data;
+             }
         }
+    return 0;
     }
 private:
-    vector<int> stack;
-    vector<int> min_stack;
+    stack<int> my_stack;
+    int min_val;
+    //vector<int> min_stack;
     
 };
 
@@ -129,5 +152,6 @@ int main(void)
     s.pop();
     cout << "Get min" << s.getMin() << endl;
     cout << "empty peep " << s.peep() <<endl; // 2
+    cout << "Get min" << s.getMin() << endl;
 
 }
