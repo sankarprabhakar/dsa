@@ -18,3 +18,4 @@ A stack is a type of data structure where the last element added is the first on
     * collections.deque - Double ended Queue - Only append and pop is thread safe
     * Queue.LifoQueue - Thread safe
 
+## Stack can be used for Depth First Search:
