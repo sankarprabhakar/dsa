@@ -41,3 +41,6 @@
 | 5         | 272           |[Perfect square](https://github.com/sankarprabhakar/dsa/blob/895a63be1bf2b342508df9c432c123201783f442/PythonProgramming/DataStructures/Queue/5_LC_279_Perfect_squares.py)|
 | 6         | 155           |[Min Stack](https://github.com/sankarprabhakar/dsa/blob/23ec9d259705b1ac0e20d491dab932e43c588735/CPP/Stack/6_LC_155_Minstack_solution1.cpp)|
 | 7         | 678           |[Paranthesis validator](https://github.com/sankarprabhakar/dsa/blob/fbda0925fd260ac6af843c162475dec2dcf80e92/CPP/Stack/7_LC_678_ValidParanthesis.cpp) |
+| 8         | 739           |[Daily Temperature](https://github.com/sankarprabhakar/dsa/blob/2090976c014c803b197a0931946dc549e915552f/CPP/Stack/8_LC_739_Daily_temperature.cpp)|
+
+
