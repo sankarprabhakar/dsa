@@ -43,5 +43,3 @@
 | 7         | 678           |[Paranthesis validator](https://github.com/sankarprabhakar/dsa/blob/fbda0925fd260ac6af843c162475dec2dcf80e92/CPP/Stack/7_LC_678_ValidParanthesis.cpp) |
 | 8         | 739           |[Daily Temperature](https://github.com/sankarprabhakar/dsa/blob/2090976c014c803b197a0931946dc549e915552f/CPP/Stack/8_LC_739_Daily_temperature.cpp)|
 | 9         | 150           |[Reverse Polish Notation](https://github.com/sankarprabhakar/dsa/blob/11b3a866b53675db78b33f8762df37f98ef6581e/CPP/Stack/9_LC_150_RPN_Postfix_expr_eval.cpp)|
-
-
