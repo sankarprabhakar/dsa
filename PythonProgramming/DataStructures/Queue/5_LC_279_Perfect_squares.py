@@ -24,9 +24,9 @@ class perfect_square:
         pass
 
     def get_squares(self,n):
-        #if n == 1:
-        #    return [1]
-        return [x**2 for x in range(1,n) if x**2 < n ]
+        if n == 1:
+            return [1]
+        return [x**2 for x in range(1,n) if x**2 <= n ]
 
     def calculate_perf_square(self,number):
         q = deque()
@@ -38,7 +38,7 @@ class perfect_square:
             if n == 0:
                 return c
             #print(n)
-            squares = self.get_squares(number)
+            squares = self.get_squares(n)
             #print(squares)
             #if len(squares) > 0:
             for square in squares:
