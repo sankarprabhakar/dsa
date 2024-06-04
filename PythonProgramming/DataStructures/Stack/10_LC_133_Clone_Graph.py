@@ -51,6 +51,7 @@ Node.val is unique for each node.
 There are no repeated edges and no self-loops in the graph.
 The Graph is connected and all nodes can be visited starting from the given node.
 """
+from collections import deque
 class Node:
     def __init__(self,val=0, neighbors= None):
         self.val = val
@@ -58,5 +59,54 @@ class Node:
 class cloneGraph:
     def __init__(self):
         return
-    def clone(self, Node n):
-        //
+    def clone(self, n):
+        if n is None:
+            return None
+        parent = Node()
+        parent.val = -1
+        # Create a new node for N.
+        # insert in to 
+        clone_stack = deque()
+        clone_stack.append((n,parent))
+        #visited_node = []
+        visited_node = {}#set()
+        while clone_stack:
+            data = clone_stack.pop()
+            if data[0] not in visited_node:
+                new_node = Node()
+                new_node.val = data[0].val
+                print(f"Poped value = {new_node.val}")
+                data[1].neighbors.append(new_node)
+                visited_node[data[0]] = new_node
+            else:
+                data[1].neighbors.append(visited_node[data[0]])
+                continue
+            for each_neighbor in reversed(data[0].neighbors):
+                #print(each_neighbor.val)
+                #if each_neighbor not in visited_node:
+                    #print("not visited")
+                clone_stack.append((each_neighbor,new_node))
+                #visited_node.add(each_neighbor)
+                #else:
+                #    new_node.neighbors.append(each_neighbor)
+
+        return parent.neighbors[0]
+
+            #print(data[0].val)
+            #print(data[1].val)
+if __name__ == "__main__":
+    n1 = Node(1)
+    n2 = Node(2)
+    n3 = Node(3)
+    n4 = Node(4)
+    n5 = Node(5)
+    n1.neighbors.append(n2)
+    n1.neighbors.append(n3)
+    
+    n2.neighbors.append(n4)
+    n3.neighbors.append(n5)
+
+    #print(n1.neighbors[0].val)
+    cg = cloneGraph()
+    nn = cg.clone(n1)
+    print(nn.neighbors[1].neighbors[0].val)
