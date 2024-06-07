@@ -143,6 +143,11 @@ class MyQueue(object):
         else:
             return True
 
+if __name__ == "__main__":
+    mys = MyQueue()
+    mys.push(1)
+    mys.push(2)
+    print(f"first top = {mys.peek()} and pop = {mys.pop()}")
 
 # Your MyQueue object will be instantiated and called as such:
 # obj = MyQueue()
