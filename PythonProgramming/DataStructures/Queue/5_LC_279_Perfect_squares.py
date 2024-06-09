@@ -18,6 +18,7 @@ Let us take example of n as 15 :
         : 
 
 '''
+# reference : https://www.youtube.com/watch?v=HLZLwjzIVGo
 from collections import deque
 class perfect_square:
     def __init__(self):
@@ -27,7 +28,7 @@ class perfect_square:
         if n == 1:
             return [1]
         return [x**2 for x in range(1,n) if x**2 <= n ]
-
+    ## Brute force method - 
     def calculate_perf_square(self,number):
         q = deque()
         count = 0
@@ -45,6 +46,28 @@ class perfect_square:
                 if (n-square) >= 0:
                     q.append([n-square, c+1])
             
+
+import math
+class PerfectSquare_DP(object):
+    def __init__(self):
+        self.square = []
+    def set_squares(self,number):
+        self.square = [x**2 for x in range(0,number+1)]
+
+    def numSquares(self,number):
+        self.set_squares(number)
+        dp = [number] * (number + 1)
+        dp[0] = 0
+        for target in range(1,number + 1):
+            squares = self.square[0:(target+1)]
+            for square in  squares:#range(1, target+1):
+                #square = s * s
+                if target - square < 0:
+                    break
+                dp[target] = min(dp[target], 1 + dp[target-square])
+        return dp[number]
+                
+        
 
 if __name__ == '__main__':
     ps = perfect_square()
