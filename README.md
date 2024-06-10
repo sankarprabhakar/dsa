@@ -44,3 +44,13 @@
 | 8         | 739           |[Daily Temperature](https://github.com/sankarprabhakar/dsa/blob/2090976c014c803b197a0931946dc549e915552f/CPP/Stack/8_LC_739_Daily_temperature.cpp)|
 | 9         | 150           |[Reverse Polish Notation](https://github.com/sankarprabhakar/dsa/blob/11b3a866b53675db78b33f8762df37f98ef6581e/CPP/Stack/9_LC_150_RPN_Postfix_expr_eval.cpp)|
 | 10         | 150           |[Clone Graph](https://github.com/sankarprabhakar/dsa/blob/9a2fac58bf7de0bbb154ae08b21f4f0123267cb8/PythonProgramming/DataStructures/Stack/10_LC_133_Clone_Graph.py)|
+| 11         | 094           |[Binary Tree Inorder](https://github.com/sankarprabhakar/dsa/blob/952b7cfd678c0defda44fa7c4daf1ab4d656b1d6/PythonProgramming/DataStructures/Stack/11_LC_094_BinaryTree_inorder.py)|
+| 12         | 494           |[Target Sum](https://github.com/sankarprabhakar/dsa/blob/952b7cfd678c0defda44fa7c4daf1ab4d656b1d6/PythonProgramming/DataStructures/Stack/12_LC_494_Target_sum.py)|
+| 13         | 232           |[Q using stack](https://github.com/sankarprabhakar/dsa/blob/main/PythonProgramming/DataStructures/Stack/13_LC_232_Q_using_stack.py)|
+| 14         | 235           |[Stack using Q](https://github.com/sankarprabhakar/dsa/blob/952b7cfd678c0defda44fa7c4daf1ab4d656b1d6/PythonProgramming/DataStructures/Stack/14_LC_235_stack_usingQ.py)|
+| 15         | 235           |[Stack using single Q](https://github.com/sankarprabhakar/dsa/blob/952b7cfd678c0defda44fa7c4daf1ab4d656b1d6/PythonProgramming/DataStructures/Stack/15_LC_235_stack_using_singleQ.py)|
+| 16         | 394           |[decode string](https://github.com/sankarprabhakar/dsa/blob/952b7cfd678c0defda44fa7c4daf1ab4d656b1d6/PythonProgramming/DataStructures/Stack/16_LC_394_decoded_string.py)|
+| 17         | 733           |[Flood fill](https://github.com/sankarprabhakar/dsa/blob/952b7cfd678c0defda44fa7c4daf1ab4d656b1d6/PythonProgramming/DataStructures/Stack/17_LC_733_Flood_fill.py)|
+| 18         | 542           |[01 Matrix](https://github.com/sankarprabhakar/dsa/blob/952b7cfd678c0defda44fa7c4daf1ab4d656b1d6/PythonProgramming/DataStructures/Stack/18_LC_542_01Matrix.py)|
+| 19         | 841           |[Keys rooms](https://github.com/sankarprabhakar/dsa/blob/952b7cfd678c0defda44fa7c4daf1ab4d656b1d6/PythonProgramming/DataStructures/Stack/19_LC_841_keys_rooms.py)|
+| 20         | 232           ||
