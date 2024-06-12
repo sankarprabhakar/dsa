@@ -33,3 +33,22 @@ Constraints:
 2 <= cost.length <= 1000
 0 <= cost[i] <= 999
 """
+class ClimbSteps:
+    def climbcost(self,cost):
+        n = len(cost)
+        dp = [0] * (n+1)
+        
+        if n < 2:
+            return 
+        dp[0] = cost[0] # 10
+        dp[1] = cost[1] # 15
+        for i in range(2,n):
+            dp[i] = min(dp[i-1] , dp[i-2]) + cost[i]
+        dp[n] = min(dp[n-1], dp[n-2]) # compute the last 
+        return dp[n]
+        
+if __name__ == "__main__":
+    cs = ClimbSteps()
+    totalcost = cs.climbcost([10,15,20])
+    print(totalcost)
+
