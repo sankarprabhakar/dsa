@@ -30,3 +30,10 @@ Constraints:
 1 <= nums.length <= 2 * 104
 1 <= nums[i] <= 104
 """
+class DeleteAndEarn:
+    def maxearn(self,nums):
+        sums = [0] * 2*10**4
+        for num in nums:
+            sums[num] = sums[num] + num
+        
+
