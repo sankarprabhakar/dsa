@@ -32,8 +32,26 @@ Constraints:
 """
 class DeleteAndEarn:
     def maxearn(self,nums):
-        sums = [0] * 2*10**4
+        mx = -1
         for num in nums:
-            sums[num] = sums[num] + num
+            mx = max(num,mx)
+        total = [0] * (mx+1) ## 0 to mx 
+        for num in nums:
+            total[num] = total[num] + num
+        # [2,2,3,3,3,4]
+        # index ==> [0,1,2,3,4]
+        # total ==> [0,0,4,9,4]
+        prior_to_prior_max = total[0]
+        prior_max = max(total[0], total[1])
+        for i in range(2,mx+1):
+            max_till_curr = max(prior_to_prior_max + total[i],prior_max) # Max of selecting or not selecting curr
+            prior_to_prior_max = prior_max
+            prior_max = max_till_curr
+        return prior_max
+if __name__ == "__main__":
+    de = DeleteAndEarn()
+    val = de.maxearn([2,2,3,3,3,4])
+    print(val)
+
         
 
