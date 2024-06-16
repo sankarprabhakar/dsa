@@ -32,3 +32,41 @@ n == obstacleGrid[i].length
 1 <= m, n <= 100
 obstacleGrid[i][j] is 0 or 1.
 """
+class UniquePathsWithObstacle:
+    def uniquePathsWithObstacles(self, grid):
+        """
+        :type obstacleGrid: List[List[int]]
+        :rtype: int
+        """
+    
+        m = len(grid)
+        n = len(grid[0])
+        # if dp[i,j] != 0:
+        #   return dp[i,j]
+        # if we can travel right
+        # dp[i,j] = call_recur[i+1, j] + call_recur[i,j+1]
+        # if i == m-1 & j == n-1
+        #  return 0
+        dp = [([0] * n) for i in range(m)]
+        #print(dp)
+        routes = self.find_routes_from(0,0,m,n,dp,grid)
+        return routes
+        
+    def find_routes_from(self, start_x, start_y, m , n,dp,grid):
+        #print(f"x, y = ({start_x} , {start_y})")
+        if grid[start_x][start_y] == 1:
+            return 0
+        if dp[start_x][start_y] != 0:
+            return dp[start_x][start_y]
+        if start_x == m-1 and start_y == n-1:
+            return 1
+        
+        if start_y + 1 < n:
+            dp[start_x][start_y] = dp[start_x][start_y]  +  self.find_routes_from(start_x,start_y+1,m,n,dp,grid)
+        if start_x + 1 < m:
+            dp[start_x][start_y] = dp[start_x][start_y] +  self.find_routes_from(start_x+1,start_y,m,n,dp,grid)
+        return dp[start_x][start_y]
+if __name__ == "__main__":
+    up = UniquePathsWithObstacle()
+    ret = up.uniquePathsWithObstacles([[0,0,0],[0,1,0],[0,0,0]])
+    print(ret)
