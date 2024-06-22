@@ -34,25 +34,33 @@ class LongestPalindrome(object):
         max_string_len = 1
         m = len(s)
         dp = [[0] * m for i in range(m)]
-        for i in range(m):
-            dp[i][i] = 1
-            if i+1 < m and s[i] == s[i+1]:
-                dp[i][i+1] = 1
-                largest_i = i
-                largest_j = i+1
-                max_string_len = 1
-        for i in range(m): #0,1,2,3
-            for j in range(i+2,m): # 2,3 (0,3)  ==> 1 & 2 
-                print(f"i = {i} j = {j}")
-                if s[i] == s[j] and dp[i+1][j-1] != 0:
-                    dp[i][j] = j-i + 1
-                    if dp[i][j] > max_string_len:
-                        max_string_len = dp[i][j]
-                        largest_i = i
-                        largest_j = j
-        print(dp)
-        #print(largest_i,largest_j)        
+        diff = 0
+        i = 0
+        j = 0
+        while diff < m:
+            i = 0
+            j = diff
+            diff = diff+1
+            while i < m and j < m:
+                if i == j:
+                    dp[i][j] = 1
+                elif i+1 == j:
+                    if s[i] == s[j]:
+                        dp[i][j] = 2
+                else:
+                    if s[i] == s[j] and dp[i+1][j-1] != 0:
+                        dp[i][j] = dp[i+1][j-1] + 2
+                if max_string_len < dp[i][j]:
+                    max_string_len = dp[i][j]
+                    largest_i = i
+                    largest_j = j
+                i = i+1
+                j = j+1
+        #print(dp)
         return s[largest_i:largest_j+1]
+
+
+
     
 if __name__ == "__main__":
     lp = LongestPalindrome()
