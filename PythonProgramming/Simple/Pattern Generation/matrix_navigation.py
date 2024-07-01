@@ -1,5 +1,5 @@
 if __name__ == "__main__":
-    matrix = [[1,2,4],[4,5,6],[7,8,9]]
+    matrix = [[1,2,3],[4,5,6],[7,8,9]]
 
     ## navigate diagonal
     row = col = 0
@@ -13,3 +13,13 @@ if __name__ == "__main__":
         print("* " * after,end = "\n")
         row +=1
         col+=1
+    row = 0
+    col = no_col-1
+    while row < no_row and col < no_col:
+        after = row
+        before = no_col - row - 1
+        print("* " * before, end="")
+        print(matrix[row][col], end=" ")
+        print("* " * after,end = "\n")
+        row +=1
+        col-=1
