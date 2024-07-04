@@ -47,6 +47,11 @@ if __name__ == "__main__":
             for i in range(bottom,top-1,-1):
                 print(matrix[i][left],end = " ")
             left += 1
+    
+    ##
+    print("format change")
+    
+
 
 
 
