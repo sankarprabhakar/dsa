@@ -49,7 +49,19 @@ if __name__ == "__main__":
             left += 1
     
     ##
-    print("format change")
+    print("\nformat change\n")
+    # (0,0) (0,1),(1,0),(2,0),(1,1),(0,2),(0,3),(1,2)
+
+    ## number of diagnonals 
+    diag = 2*m -1 
+    print(diag)
+    import math
+    # 4-(4-3+1) 5-5-3+2 
+    diag_len = [i if i <=m else (diag+1 - i) for i in range(1,diag+1)]
+    print(diag_len)
+    
+    
+    #while 
     
 
 
