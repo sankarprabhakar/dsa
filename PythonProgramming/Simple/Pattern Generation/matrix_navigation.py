@@ -77,7 +77,7 @@ if __name__ == "__main__":
 
 
 
-
+        matrix = [[1,2,4],[3,5,7],[6,8,9]]
 
         #print(f"start index = {start_x},{start_y}")
         
@@ -86,10 +86,7 @@ if __name__ == "__main__":
             print(matrix[start_x][start_y], end =" ")
             start_x+=1
             start_y-=1
-
-       
-    
-    #while 
+    #while
     
 
 
