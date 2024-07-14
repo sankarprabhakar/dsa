@@ -16,9 +16,19 @@ def checkavailable(list, n):
         return True
     else:
         return False
+def clearlist():
+    my_list = [1,2,3,4]
+    print(my_list)
+    my_list = []
+    print(my_list)
+    my_list = [1,2,3,4]
+    del my_list[:]
+    print(my_list)
+    
 
 if __name__ == "__main__":
     swapfirstlast()
     print(swap_two_position([1,2,3,4,5],0,1))
     print(getlen([1,2,3,4,5]))
     print(checkavailable([1,2,3,4,5],5))
+    clearlist()
